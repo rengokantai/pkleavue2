@@ -8,3 +8,30 @@ Let's start by creating a directory called __vuex__ inside specs. Here is where 
 
 
 
+## 8. Deploying – Time to Go Live!
+### Software deployment
+[ngrok](https://ngrok.com/download)
+```
+ngrok http 8080
+```
+
+### Setting continuous integration with Travis
+.travis.yml  
+See last two lines
+```
+language: node_js 
+sudo: required 
+dist: trusty 
+node_js: 
+  - "5.11.0" 
+ 
+before_script: 
+  - export CHROME_BIN=/usr/bin/google-chrome 
+  - sudo apt-get update 
+  - sudo apt-get install -y libappindicator1 fonts-liberation 
+  - wget https://dl.google.com/linux/direct/google-chrome-
+    stable_current_amd64.deb 
+  - sudo dpkg -i google-chrome*.deb 
+  - export DISPLAY=:99.0 
+  - sh -e /etc/init.d/xvfb start 
+```
