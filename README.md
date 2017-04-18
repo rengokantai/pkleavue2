@@ -35,3 +35,18 @@ before_script:
   - export DISPLAY=:99.0 
   - sh -e /etc/init.d/xvfb start 
 ```
+
+
+### Deploying the Pomodoro application
+```
+heroku logs --app catodoro --tail  
+```
+it fails. Do not forget to create a npm start script in package.json.
+
+
+### Deploying the shopping list application
+try heroku locally
+```
+npm run build 
+heroku local web  
+```
